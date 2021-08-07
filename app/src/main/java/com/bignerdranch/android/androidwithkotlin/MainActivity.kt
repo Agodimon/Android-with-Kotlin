@@ -15,13 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
+        closedRangeCycleReverse()
+        closedRangeCycleReverseWithStep()
+        closedRangeCycle()
         getChangeTextByPressSwitch()
 
         val btnPersList = findViewById<View>(R.id.btn_getListPerson)
         btnPersList.setOnClickListener(View.OnClickListener { view ->
             GetNamePersonList()
+            forEachCycle()
+
         })
 
         val btn = findViewById<View>(R.id.btn_getNamePerson)
@@ -79,4 +82,29 @@ class MainActivity : AppCompatActivity() {
         Log.i("TAG", "${data2.firstName} ${data2.secondName}")
     }
 
+    private fun forEachCycle() {
+        val arrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        for (i in arrayList) {
+            Log.d("forEachCycle", i.toString())
+        }
+    }
+
+    private fun closedRangeCycle() {
+        for (i in 1..50) {
+            Log.d("closedRangeCycle", i.toString())
+        }
+    }
+
+    private fun closedRangeCycleReverse() {
+        for (i in 100 downTo 50) {
+            Log.d("closedRangeCycleReverse", i.toString())
+        }
+    }
+
+    private fun closedRangeCycleReverseWithStep() {
+        for (i in 50 downTo 0 step 5) {
+            Log.d("TAG", i.toString())
+        }
+
+    }
 }
