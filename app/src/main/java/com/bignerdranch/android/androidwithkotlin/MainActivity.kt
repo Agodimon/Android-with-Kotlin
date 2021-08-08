@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         btnPersList.setOnClickListener(View.OnClickListener { view ->
             GetNamePersonList()
             forEachCycle()
-
         })
 
         val btn = findViewById<View>(R.id.btn_getNamePerson)
