@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android with Kotlin</string>
+    <string name="press_button_to_get_name_person">Press button to get name person (Toast)</string>
+    <string name="get_list_name_person_in_log_i_tag">Get List Name Person in Log.i \'TAG\'</string>
+    <string name="switch_change_text">Изменил текст</string>
+    <string name="text_change">Нажми переключатель чтобы изменить текст</string>
 </resources>
