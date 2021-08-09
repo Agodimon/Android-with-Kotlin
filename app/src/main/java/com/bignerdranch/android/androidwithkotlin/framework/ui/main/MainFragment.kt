@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.bignerdranch.android.androidwithkotlin.AppState
+import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.MainFragmentBinding
+import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,19 +48,34 @@ class MainFragment : Fragment() {
             is AppState.Success -> {
                 val weatherData = appState.weatherData
                 progressBar.visibility = View.GONE
-                Snackbar.make(mainView, "Success", Snackbar.LENGTH_LONG).show()
+                weatherGroup.visibility= View.VISIBLE
+                setData(weatherData)
             }
             is AppState.Loading -> {
                 progressBar.visibility = View.VISIBLE
+                weatherGroup.visibility= View.INVISIBLE
             }
             is AppState.Error -> {
                 progressBar.visibility = View.GONE
+                weatherGroup.visibility= View.INVISIBLE
                 Snackbar
                     .make(mainView, "Error", Snackbar.LENGTH_INDEFINITE)
                     .setAction("Reload") { viewModel.getWeather() }
                     .show()
             }
         }
+    }
+
+    private fun setData(weatherData:Weather)= with(binding){
+
+        cityName.text = weatherData.city.city
+        cityCoordinates.text = String.format(
+            getString(R.string.city_coordinates),
+            weatherData.city.lat.toString(),
+            weatherData.city.lon.toString()
+        )
+        temperatureValue.text = weatherData.temperature.toString()
+        feelsLikeValue.text = weatherData.feelsLike.toString()
     }
 
     companion object {

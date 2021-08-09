@@ -3,9 +3,11 @@ package com.bignerdranch.android.androidwithkotlin.framework.ui.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bignerdranch.android.androidwithkotlin.AppState
+import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
+import com.bignerdranch.android.androidwithkotlin.model.repository.Repository
 import java.lang.Thread.sleep
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private val repository: Repository) : ViewModel() {
     private val liveDataToObserve:MutableLiveData<AppState> = MutableLiveData()
 
     fun getLiveData()=liveDataToObserve
@@ -16,7 +18,7 @@ class MainViewModel : ViewModel() {
         liveDataToObserve.value=AppState.Loading
         Thread{
             sleep(1000)
-            liveDataToObserve.postValue(AppState.Success(Any()))
+            liveDataToObserve.postValue(AppState.Success(repository.getWeatherFromLocalStorage()))
         }.start()
     }
 
