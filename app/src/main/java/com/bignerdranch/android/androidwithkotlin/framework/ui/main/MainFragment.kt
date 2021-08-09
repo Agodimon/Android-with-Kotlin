@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.bignerdranch.android.androidwithkotlin.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,11 +25,16 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val observer = Observer<Any> {renderData(it)}
+        viewModel.getData().observe(viewLifecycleOwner,observer)
     }
+
+    private fun renderData(data: Any){
+Toast.makeText(context,"data", Toast.LENGTH_LONG).show()
+    }
+
     companion object {
         fun newInstance() = MainFragment()
     }
