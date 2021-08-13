@@ -6,7 +6,7 @@ import com.bignerdranch.android.androidwithkotlin.model.repository.RepositoryImp
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule= module {
-    single<Repository>{RepositoryImpl()}
+val appModule = module {
+    single<Repository> { RepositoryImpl() }
     viewModel { MainViewModel(get()) }
 }

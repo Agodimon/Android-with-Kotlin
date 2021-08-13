@@ -43,21 +43,21 @@ class MainFragment : Fragment() {
         _binding = null
     }
 
-    private fun renderData(appState: AppState) = with(binding){
+    private fun renderData(appState: AppState) = with(binding) {
         when (appState) {
             is AppState.Success -> {
                 val weatherData = appState.weatherData
                 progressBar.visibility = View.GONE
-                weatherGroup.visibility= View.VISIBLE
+                weatherGroup.visibility = View.VISIBLE
                 setData(weatherData)
             }
             is AppState.Loading -> {
                 progressBar.visibility = View.VISIBLE
-                weatherGroup.visibility= View.INVISIBLE
+                weatherGroup.visibility = View.INVISIBLE
             }
             is AppState.Error -> {
                 progressBar.visibility = View.GONE
-                weatherGroup.visibility= View.INVISIBLE
+                weatherGroup.visibility = View.INVISIBLE
                 Snackbar
                     .make(mainView, "Error", Snackbar.LENGTH_INDEFINITE)
                     .setAction("Reload") { viewModel.getWeather() }
@@ -66,7 +66,7 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun setData(weatherData:Weather)= with(binding){
+    private fun setData(weatherData: Weather) = with(binding) {
 
         cityName.text = weatherData.city.city
         cityCoordinates.text = String.format(
