@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.DetailsFragmentBinding
+import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainViewModel
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -14,8 +15,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
 
-
-    private val viewModel: MainViewModel by viewModel()
     private var _binding: DetailsFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -31,7 +30,6 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewLifecycleOwner.lifecycle.addObserver(viewModel)
         arguments?.getParcelable<Weather>(BUNDLE_EXTRA)?.let {
             with(binding) {
                 val city = it.city
@@ -62,4 +60,7 @@ class DetailsFragment : Fragment() {
             return fragment
         }
     }
+
+
+
 }
