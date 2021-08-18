@@ -41,9 +41,7 @@ class DetailsFragment : Fragment() {
                 )
                 temperatureValue.text = it.temperature.toString()
                 feelsLikeValue.text = it.feelsLike.toString()
-
             }
-
         }
     }
 
@@ -60,7 +58,5 @@ class DetailsFragment : Fragment() {
             return fragment
         }
     }
-
-
 
 }
