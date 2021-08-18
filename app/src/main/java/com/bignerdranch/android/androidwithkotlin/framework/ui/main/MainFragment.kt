@@ -12,6 +12,7 @@ import com.bignerdranch.android.androidwithkotlin.databinding.MainFragmentBindin
 import com.bignerdranch.android.androidwithkotlin.framework.ui.DetailsFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.adapters.MainFragmentAdapter
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
+import com.bignerdranch.android.androidwithkotlin.showKeyboard
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
