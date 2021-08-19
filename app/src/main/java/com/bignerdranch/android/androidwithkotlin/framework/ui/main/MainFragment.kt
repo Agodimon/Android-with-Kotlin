@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.AppState
 import com.bignerdranch.android.androidwithkotlin.R
-import com.bignerdranch.android.androidwithkotlin.databinding.DetailsFragmentBinding
 import com.bignerdranch.android.androidwithkotlin.databinding.MainFragmentBinding
-import com.bignerdranch.android.androidwithkotlin.framework.ui.DetailsFragment
+import com.bignerdranch.android.androidwithkotlin.framework.ui.details.DetailsFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.adapters.MainFragmentAdapter
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
-import com.bignerdranch.android.androidwithkotlin.showKeyboard
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
