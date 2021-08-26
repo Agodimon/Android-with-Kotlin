@@ -16,11 +16,9 @@ class DetailsFragment : Fragment() {
 
     private var _binding: DetailsFragmentBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: DetailsViewModel by viewModel()
 
     override
-
     fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,5 +76,4 @@ class DetailsFragment : Fragment() {
             return fragment
         }
     }
-
 }
