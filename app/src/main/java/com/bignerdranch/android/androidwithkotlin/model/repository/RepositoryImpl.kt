@@ -6,7 +6,7 @@ import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
 import com.bignerdranch.android.androidwithkotlin.model.rest.WeatherRepo
 
 class RepositoryImpl : Repository {
-       override fun getWeatherFromServer(lat: Double, lng: Double): Weather {
+    override fun getWeatherFromServer(lat: Double, lng: Double): Weather {
         val dto = WeatherRepo.api.getWeather(lat, lng).execute().body()
         return Weather(
             temperature = dto?.fact?.temp ?: 0,
