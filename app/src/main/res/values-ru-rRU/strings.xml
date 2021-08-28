@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Андроид (Котлин)</string>
+    <string name="temperature_label">Температура</string>
+    <string name="feels_like_label">Ощущается как</string>
+    <string name="error">Ошибка!</string>
+    <string name="reload">Обновить</string>
+    <string name="error_happened">Произошла ошибка</string>
+   
+</resources>
