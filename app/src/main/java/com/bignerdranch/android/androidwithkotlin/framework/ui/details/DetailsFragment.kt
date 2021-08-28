@@ -9,6 +9,7 @@ import com.bignerdranch.android.androidwithkotlin.AppState
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.DetailsFragmentBinding
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -59,6 +60,12 @@ class DetailsFragment : Fragment() {
                     }
                 })
                 viewModel.loadData(it.city.lat, it.city.lon)
+
+                Picasso
+                    .get()
+                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+                    .fit()
+                    .into(imageView)
             }
         }
     }
