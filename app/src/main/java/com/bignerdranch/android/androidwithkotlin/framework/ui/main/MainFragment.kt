@@ -1,5 +1,6 @@
 package com.bignerdranch.android.androidwithkotlin.framework.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,9 @@ import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
+    private val IS_WORLD_KEY = "LIST_OF_TOWNS_KEY"
+    private var isDataSetWorld: Boolean = false
+
     private val viewModel: MainViewModel by viewModel()
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
@@ -35,27 +39,56 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
             mainFragmentRecyclerView.adapter = adapter
+
+            initDataSet()
+            loadDataSet()
             mainFragmentFAB.setOnClickListener { changeWeatherDataSet() }
             viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
-            viewModel.getWeatherFromLocalSourceRus()
+
+
         }
+
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    private fun changeWeatherDataSet() {
+    private fun initDataSet() {
+        activity?.let {
+            isDataSetRus = it.getPreferences(Context.MODE_PRIVATE)
+                .getBoolean(IS_WORLD_KEY, true)
+        }
+    }
+
+    private fun changeWeatherDataSet() = with(binding) {
+        isDataSetRus = !isDataSetRus
+        loadDataSet()
+    }
+
+    private fun loadDataSet() = with(binding) {
+
         if (isDataSetRus) {
             viewModel.getWeatherFromLocalSourceWorld()
-            binding.mainFragmentFAB.setImageResource(R.drawable.ic_earth)
+            mainFragmentFAB.setImageResource(R.drawable.ic_earth)
         } else {
             viewModel.getWeatherFromLocalSourceRus()
-            binding.mainFragmentFAB.setImageResource(R.drawable.ic_russia)
+            mainFragmentFAB.setImageResource(R.drawable.ic_russia)
         }
-        isDataSetRus = !isDataSetRus
+        saveDataSetToDisk()
     }
+
+    private fun saveDataSetToDisk() {
+        activity?.let {
+            val preferences = it.getPreferences(Context.MODE_PRIVATE)
+            val editor = preferences.edit()
+            editor.putBoolean(IS_WORLD_KEY, isDataSetRus)
+            editor.apply()
+        }
+    }
+
 
     private fun renderData(appState: AppState) = with(binding) {
         when (appState) {
@@ -101,6 +134,7 @@ class MainFragment : Fragment() {
     }
 
     companion object {
+
         fun newInstance() = MainFragment()
     }
 
