@@ -15,19 +15,20 @@ class MainViewModel(private val repository: Repository) : ViewModel(), Lifecycle
 
     fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
     fun getWeatherFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)
-   // fun getWeatherFromRemoteSource() = getDataFromLocalSource(isRussian = true)
+    // fun getWeatherFromRemoteSource() = getDataFromLocalSource(isRussian = true)
 
-    private fun getDataFromLocalSource(isRussian : Boolean) {
+    private fun getDataFromLocalSource(isRussian: Boolean) {
         liveDataToObserve.value = AppState.Loading
         Thread {
             sleep(1000)
 
             liveDataToObserve.postValue(
-                if(isRussian){
+                if (isRussian) {
                     AppState.Success(repository.getWeatherFromLocalStorageRus())
-                } else{
+                } else {
                     AppState.Success(repository.getWeatherFromLocalStorageWorld())
-                })
+                }
+            )
         }.start()
     }
 
