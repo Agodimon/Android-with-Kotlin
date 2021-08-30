@@ -2,7 +2,11 @@ package com.bignerdranch.android.androidwithkotlin.framework.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.R
+import com.bignerdranch.android.androidwithkotlin.framework.ui.history.HistoryFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +18,31 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, MainFragment.newInstance())
                 .commitNow()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.menu_history -> {
+                openFragment(HistoryFragment.newInstance())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        supportFragmentManager.apply {
+            beginTransaction()
+                .add(R.id.container, fragment)
+                .addToBackStack("")
+                .commitAllowingStateLoss()
         }
     }
 }

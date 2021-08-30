@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import com.google.android.material.snackbar.Snackbar
 
 fun EditText.showKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -22,4 +23,16 @@ fun View.hideKeyboard(): Boolean {
     return false
 }
 
+fun View.showSnackBar(
+    text: String,
+    actionText: String,
+    action: ((View) -> Unit)? = null,
+    length: Int = Snackbar.LENGTH_INDEFINITE
+) {
+    val ourSnackBar = Snackbar.make(this, text, length)
+    action?.let {
+        ourSnackBar.setAction(actionText, it)
+    }
+    ourSnackBar.show()
+}
 //пока что оставлю этот файл . В дальнейшем эти методы использую.

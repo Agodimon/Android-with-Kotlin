@@ -6,6 +6,7 @@
     <string name="error">Error!</string>
     <string name="reload">Reload</string>
     <string name="error_happened">Error happened</string>
+    <string name="history">История</string>
 
 
 </resources>
