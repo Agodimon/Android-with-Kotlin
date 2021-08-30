@@ -14,8 +14,9 @@ import com.bignerdranch.android.androidwithkotlin.AppState
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.DetailsFragmentBinding
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
-import com.bignerdranch.android.androidwithkotlin.model.rest_entities.FactDTO
-import com.bignerdranch.android.androidwithkotlin.model.rest_entities.WeatherDTO
+
+import com.squareup.picasso.Picasso
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 const val DETAILS_INTENT_FILTER = "DETAILS INTENT FILTER"
@@ -38,54 +39,7 @@ class DetailsFragment : Fragment() {
 
     private var _binding: DetailsFragmentBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: DetailsViewModel by viewModel()
-
-    private lateinit var weatherBundle: Weather
-    private val loadResultsReceiver: BroadcastReceiver = object :
-        BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            when (intent.getStringExtra(DETAILS_LOAD_RESULT_EXTRA)) {
-                DETAILS_INTENT_EMPTY_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_DATA_EMPTY_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_RESPONSE_EMPTY_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_REQUEST_ERROR_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_REQUEST_ERROR_MESSAGE_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_URL_MALFORMED_EXTRA -> TODO(PROCESS_ERROR)
-                DETAILS_RESPONSE_SUCCESS_EXTRA -> renderData(
-                    WeatherDTO(
-                        FactDTO(
-                            intent.getIntExtra(
-                                DETAILS_TEMP_EXTRA, TEMP_INVALID
-                            ),
-                            intent.getIntExtra(
-                                DETAILS_FEELS_LIKE_EXTRA,
-                                FEELS_LIKE_INVALID
-                            ),
-                            intent.getStringExtra(
-                                DETAILS_CONDITION_EXTRA
-                            )
-                        )
-                    )
-                )
-                else -> TODO(PROCESS_ERROR)
-            }
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        context?.let {
-            LocalBroadcastManager.getInstance(it)
-                .registerReceiver(
-                    loadResultsReceiver,
-                    IntentFilter(DETAILS_INTENT_FILTER)
-                )
-        }
-    }
-
-
-    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -125,6 +79,12 @@ class DetailsFragment : Fragment() {
                     }
                 })
                 viewModel.loadData(it.city.lat, it.city.lon)
+
+                Picasso
+                    .get()
+                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+                    .fit()
+                    .into(imageView)
             }
         }
     }
@@ -150,45 +110,4 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun getWeather() {
-        binding.mainView.visibility = View.GONE
-        binding.loadingLayout.visibility = View.VISIBLE
-        context?.let {
-            it.startService(Intent(it, DetailsService::class.java).apply {
-                putExtra(
-                    LATITUDE_EXTRA,
-                    weatherBundle.city.lat
-                )
-                putExtra(
-                    LONGITUDE_EXTRA,
-                    weatherBundle.city.lon
-                )
-            })
-        }
-    }
-
-    private fun renderData(weatherDTO: WeatherDTO) {
-        binding.mainView.visibility = View.VISIBLE
-        binding.loadingLayout.visibility = View.GONE
-        val fact = weatherDTO.fact
-        val temp = fact!!.temp
-        val feelsLike = fact.feels_like
-        val condition = fact.condition
-        if (temp == TEMP_INVALID || feelsLike == FEELS_LIKE_INVALID || condition ==
-            null
-        ) {
-            TODO("Обработка ошибки")
-        } else {
-            val city = weatherBundle.city
-            binding.cityName.text = city.city
-            binding.cityCoordinates.text = String.format(
-                getString(R.string.city_coordinates),
-                city.lat.toString(),
-                city.lon.toString()
-            )
-            binding.temperatureValue.text = temp.toString()
-            binding.feelsLikeValue.text = feelsLike.toString()
-            binding.weatherCondition.text = condition
-        }
-    }
 }

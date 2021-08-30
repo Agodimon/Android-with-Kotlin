@@ -2,7 +2,7 @@ package com.bignerdranch.android.androidwithkotlin.model
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.bignerdranch.android.androidwithkotlin.model.rest_entities.WeatherDTO
+import com.bignerdranch.android.androidwithkotlin.model.rest.rest_entities.WeatherDTO
 import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
