@@ -19,5 +19,6 @@
     <dimen name="tv_cityName_textSize">35sp</dimen>
     <dimen name="tv_cityCoordinates_layout_marginTop">5dp</dimen>
     <dimen name="margin_5_dp">5dp</dimen>
+    <dimen name="main_container_text_size">10sp</dimen>
 
 </resources>
