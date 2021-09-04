@@ -34,7 +34,6 @@ class RepositoryImpl : Repository {
             Weather(City(it.city, 0.0, 0.0), it.temperature, 0, it.condition)
         }
 
-
     private fun convertWeatherToEntity(weather: Weather): HistoryEntity =
         HistoryEntity(
             0, weather.city.city,
