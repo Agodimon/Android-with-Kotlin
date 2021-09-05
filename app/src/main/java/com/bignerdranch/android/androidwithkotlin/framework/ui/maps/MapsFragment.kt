@@ -1,9 +1,16 @@
 package com.bignerdranch.android.androidwithkotlin.framework.ui.maps
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.location.Address
+import android.location.Geocoder
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.app.ActivityCompat
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.FragmentMapsBinding
 
@@ -14,29 +21,43 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
+import kotlinx.coroutines.*
 import kotlinx.coroutines.NonCancellable.cancel
-import kotlinx.coroutines.cancel
+import java.io.IOException
 
-class MapsFragment : Fragment() {
-
+class MapsFragment : Fragment(), CoroutineScope by MainScope() {
     private lateinit var map: GoogleMap
+    private var menu: Menu? = null
     private val markers: ArrayList<Marker> = ArrayList()
     private var _binding: FragmentMapsBinding? = null
     private val binding get() = _binding!!
 
+    @SuppressLint("MissingPermission")
     private val callback = OnMapReadyCallback { googleMap ->
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        map = googleMap
+
+        map.uiSettings.isZoomControlsEnabled = true
+        map.uiSettings.isMyLocationButtonEnabled = true
+
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            map.isMyLocationEnabled = true
+        }
+
+        val initialPlace = LatLng(44.952117, 34.102417)
+        val marker = googleMap.addMarker(
+            MarkerOptions().position(initialPlace).title(getString(R.string.start_marker))
+        )
+        marker?.let { markers.add(it) }
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(initialPlace))
+        googleMap.setOnMapLongClickListener { latLng ->
+            setMarker(latLng, "From long click")
+            drawLine()
+        }
     }
 
     override fun onCreateView(
@@ -52,6 +73,7 @@ class MapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+        initSearchByAddress()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,13 +82,21 @@ class MapsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        menu?.findItem(R.id.menu_google_maps)?.isVisible = true
         _binding = null
         super.onDestroyView()
     }
 
+    override fun onDestroy() {
+        cancel()
+        super.onDestroy()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        activity?.menuInflater?.inflate(R.menu.map_menu, menu)
+        inflater.inflate(R.menu.map_menu, menu)
+        this.menu = menu
+        menu.findItem(R.id.menu_google_maps).isVisible = false
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -91,6 +121,58 @@ class MapsFragment : Fragment() {
         return false
     }
 
+
+    private fun initSearchByAddress() = with(binding) {
+        buttonSearch.setOnClickListener {
+            val geoCoder = Geocoder(it.context)
+            val searchText = searchAddress.text.toString()
+            launch(Dispatchers.IO) {
+                try {
+                    val addresses = geoCoder.getFromLocationName(searchText, 1)
+                    if (addresses.isNotEmpty()) {
+                        goToAddress(addresses, it, searchText)
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    private fun goToAddress(addresses: MutableList<Address>, view: View, searchText: String) {
+        val location = LatLng(addresses[0].latitude, addresses[0].longitude)
+        launch {
+            setMarker(location, searchText)
+            map.moveCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    location,
+                    15f
+                )
+            )
+        }
+    }
+
+    private fun setMarker(location: LatLng, searchText: String) {
+        map.addMarker(
+            MarkerOptions()
+                .position(location)
+                .title(searchText)
+        )?.let { markers.add(it) }
+    }
+
+    private fun drawLine() {
+        val last: Int = markers.size - 1
+        if (last >= 1) {
+            val previous: LatLng = markers[last - 1].position
+            val current: LatLng = markers[last].position
+            map.addPolyline(
+                PolylineOptions()
+                    .add(previous, current)
+                    .color(Color.RED)
+                    .width(5f)
+            )
+        }
+    }
 
     companion object {
         fun newInstance() = MapsFragment()
