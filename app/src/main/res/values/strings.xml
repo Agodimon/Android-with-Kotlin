@@ -24,6 +24,7 @@
     <string name="current_location">Текущее местоположение</string>
     <string name="need_permissions_to_find_location">Необходимо разрешение для показа погоды для текущего места</string>
     <string name="looks_like_location_disabled">Возможно, выключена функция определения местоположения</string>
+    <string name="map">Карта</string>
 
 
 </resources>
