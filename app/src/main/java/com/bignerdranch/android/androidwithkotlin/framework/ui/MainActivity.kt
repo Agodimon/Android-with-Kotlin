@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.R
+import com.bignerdranch.android.androidwithkotlin.framework.ui.contacts.ContactsFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.history.HistoryFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainFragment
 
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
             R.id.menu_history -> {
                 openFragment(HistoryFragment.newInstance())
+                true
+            }
+            R.id.menu_contacts -> {
+                openFragment(ContactsFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)

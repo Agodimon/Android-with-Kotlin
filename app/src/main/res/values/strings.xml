@@ -7,6 +7,8 @@
     <string name="reload">Reload</string>
     <string name="error_happened">Error happened</string>
     <string name="history">История</string>
+    <string name="need_permissions_to_read_contacts">Необходимо предоставить разрешение для чтения контактов</string>
+    <string name="contacts">Контакты</string>
 
 
 </resources>
