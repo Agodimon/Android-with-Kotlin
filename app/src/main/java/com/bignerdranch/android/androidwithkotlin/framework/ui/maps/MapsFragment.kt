@@ -7,13 +7,11 @@ import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.*
 import androidx.core.app.ActivityCompat
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.FragmentMapsBinding
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,7 +21,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import kotlinx.coroutines.*
-import kotlinx.coroutines.NonCancellable.cancel
 import java.io.IOException
 
 class MapsFragment : Fragment(), CoroutineScope by MainScope() {
