@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.androidwithkotlin.databinding.FragmentMainRecyclerItemBinding
-import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainFragment
+import com.bignerdranch.android.androidwithkotlin.framework.ui.list_of_cities.ListOfCitiesFragment
 import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
 
-class MainFragmentAdapter(private var itemClickListener: MainFragment.OnItemViewClickListener) :
+class MainFragmentAdapter(private var itemClickListener: ListOfCitiesFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
     private var weatherData: List<Weather> = listOf()
     private lateinit var binding: FragmentMainRecyclerItemBinding

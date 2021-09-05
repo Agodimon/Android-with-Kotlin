@@ -24,6 +24,19 @@
         app:maxImageSize="@dimen/fab_icon_size"
         app:tint="@null" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mainFragmentFABLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        android:src="@android:drawable/ic_dialog_map"
+        app:tint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/mainFragmentFAB"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/current_location"
+        app:maxImageSize="35dp" />
+
     <FrameLayout
         android:id="@+id/mainFragmentLoadingLayout"
         android:layout_width="match_parent"
