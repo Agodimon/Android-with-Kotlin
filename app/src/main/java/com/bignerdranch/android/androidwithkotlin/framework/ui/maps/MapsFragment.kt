@@ -23,12 +23,18 @@ import com.google.android.gms.maps.model.PolylineOptions
 import kotlinx.coroutines.*
 import java.io.IOException
 
+const val latConstant = 44.952117
+const val lngConstant = 34.102417
+const val zoomConstant = 15f
+
+
 class MapsFragment : Fragment(), CoroutineScope by MainScope() {
     private lateinit var map: GoogleMap
     private var menu: Menu? = null
     private val markers: ArrayList<Marker> = ArrayList()
     private var _binding: FragmentMapsBinding? = null
     private val binding get() = _binding!!
+
 
     @SuppressLint("MissingPermission")
     private val callback = OnMapReadyCallback { googleMap ->
@@ -45,7 +51,7 @@ class MapsFragment : Fragment(), CoroutineScope by MainScope() {
             map.isMyLocationEnabled = true
         }
 
-        val initialPlace = LatLng(44.952117, 34.102417)
+        val initialPlace = LatLng(latConstant, lngConstant)
         val marker = googleMap.addMarker(
             MarkerOptions().position(initialPlace).title(getString(R.string.start_marker))
         )
@@ -143,7 +149,7 @@ class MapsFragment : Fragment(), CoroutineScope by MainScope() {
             map.moveCamera(
                 CameraUpdateFactory.newLatLngZoom(
                     location,
-                    15f
+                    zoomConstant
                 )
             )
         }
