@@ -3,18 +3,26 @@ package com.bignerdranch.android.androidwithkotlin.framework.ui.maps
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.bignerdranch.android.androidwithkotlin.R
+import com.bignerdranch.android.androidwithkotlin.databinding.FragmentMapsBinding
 
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.coroutines.NonCancellable.cancel
+import kotlinx.coroutines.cancel
 
 class MapsFragment : Fragment() {
+
+    private lateinit var map: GoogleMap
+    private val markers: ArrayList<Marker> = ArrayList()
+    private var _binding: FragmentMapsBinding? = null
+    private val binding get() = _binding!!
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -35,8 +43,9 @@ class MapsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+    ): View {
+        _binding = FragmentMapsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,6 +53,44 @@ class MapsFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        activity?.menuInflater?.inflate(R.menu.map_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_map_mode_normal -> {
+                map.mapType = GoogleMap.MAP_TYPE_NORMAL
+                return true
+            }
+            R.id.menu_map_mode_satellite -> {
+                map.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                return true
+            }
+            R.id.menu_map_mode_terrain -> {
+                map.mapType = GoogleMap.MAP_TYPE_TERRAIN
+                return true
+            }
+            R.id.menu_map_traffic -> {
+                map.isTrafficEnabled = !map.isTrafficEnabled
+                return true
+            }
+        }
+        return false
+    }
+
 
     companion object {
         fun newInstance() = MapsFragment()
