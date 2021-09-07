@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.framework.ui.contacts.ContactsFragment
 import com.bignerdranch.android.androidwithkotlin.framework.ui.history.HistoryFragment
-import com.bignerdranch.android.androidwithkotlin.framework.ui.main.MainFragment
+import com.bignerdranch.android.androidwithkotlin.framework.ui.list_of_cities.ListOfCitiesFragment
+import com.bignerdranch.android.androidwithkotlin.framework.ui.maps.MapsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, ListOfCitiesFragment.newInstance())
                 .commitNow()
         }
     }
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.menu_contacts -> {
                 openFragment(ContactsFragment.newInstance())
+                true
+            }
+            R.id.menu_google_maps -> {
+                openFragment(MapsFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)

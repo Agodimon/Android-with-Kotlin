@@ -1,14 +1,13 @@
-package com.bignerdranch.android.androidwithkotlin.framework.ui.main
+package com.bignerdranch.android.androidwithkotlin.framework.ui.list_of_cities
 
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bignerdranch.android.androidwithkotlin.AppState
-import com.bignerdranch.android.androidwithkotlin.model.entities.Weather
 import com.bignerdranch.android.androidwithkotlin.model.repository.Repository
 import java.lang.Thread.sleep
 
-class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
+class ListOfCitiesViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
 
     fun getLiveData() = liveDataToObserve
