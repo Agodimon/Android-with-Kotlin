@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.bignerdranch.android.androidwithkotlin.R
@@ -26,6 +27,9 @@ class MessagingService:FirebaseMessagingService() {
 
         val customData = message.data[CUSTOM_FIELD]
         Log.i(TAG, customData ?: "no data!")
+
+
+        Toast.makeText(this, customData, Toast.LENGTH_SHORT).show()
 
         /*if (message.data.isNotEmpty()) {
             handleDataMessage(message.data.toMap())
