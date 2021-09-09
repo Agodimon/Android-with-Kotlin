@@ -13,7 +13,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-class MessagingService:FirebaseMessagingService() {
+class MessagingService : FirebaseMessagingService() {
     private val TAG = "Pushes"
 
     override fun onNewToken(token: String) {
@@ -27,14 +27,12 @@ class MessagingService:FirebaseMessagingService() {
 
         val customData = message.data[CUSTOM_FIELD]
         Log.i(TAG, customData ?: "no data!")
-
-
-        Toast.makeText(this, customData, Toast.LENGTH_SHORT).show()
-
-        /*if (message.data.isNotEmpty()) {
+        if (message.data.isNotEmpty()) {
             handleDataMessage(message.data.toMap())
-        }*/
+        }
+
     }
+
 
     private fun handleDataMessage(data: Map<String, String>) {
         val title = data[PUSH_KEY_TITLE]
