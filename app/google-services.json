@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312221146254",
+    "project_id": "android-with-kotlin-38255",
+    "storage_bucket": "android-with-kotlin-38255.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312221146254:android:f33407d995efbae7b87ddf",
+        "android_client_info": {
+          "package_name": "com.bignerdranch.android.androidwithkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312221146254-us2hlao0m85ocs26t56oi1m5kicdh054.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYGG2DKD4CWdI_Zlk9i7QMmd5g38CMekk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312221146254-us2hlao0m85ocs26t56oi1m5kicdh054.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
