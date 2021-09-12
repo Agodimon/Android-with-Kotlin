@@ -5,6 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/version"
+        app:layout_constraintBottom_toBottomOf="@+id/mainFragmentLoadingLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/mainFragmentRecyclerView"
+        app:layout_constraintTop_toTopOf="@+id/mainFragmentFAB" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainFragmentRecyclerView"
         android:layout_width="match_parent"
@@ -43,11 +54,18 @@
         android:layout_height="match_parent"
         android:background="@color/loadingBackground"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="166dp"
         tools:visibility="visible">
+
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
+
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

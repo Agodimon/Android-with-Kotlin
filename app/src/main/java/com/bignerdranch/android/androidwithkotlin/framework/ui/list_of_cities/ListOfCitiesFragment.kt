@@ -19,6 +19,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.AppState
+import com.bignerdranch.android.androidwithkotlin.BuildConfig
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.databinding.ListOfCitiesFragmentBinding
 import com.bignerdranch.android.androidwithkotlin.framework.ui.details.DetailsFragment
@@ -74,7 +75,7 @@ class ListOfCitiesFragment : Fragment(), CoroutineScope by MainScope() {
             mainFragmentFAB.setOnClickListener { changeWeatherDataSet() }
             mainFragmentFABLocation.setOnClickListener { checkPermission() }
             viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
-
+            binding.tvVersion.text = BuildConfig.TYPE
         }
 
     }

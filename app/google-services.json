@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:312221146254:android:f33407d995efbae7b87ddf",
         "android_client_info": {
-          "package_name": "com.bignerdranch.android.androidwithkotlin"
+          "package_name": "com.bignerdranch.android.androidwithkotlin.debug"
         }
       },
       "oauth_client": [

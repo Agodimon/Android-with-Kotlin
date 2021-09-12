@@ -30,15 +30,18 @@ android {
         beta {
             initWith debug
             versionNameSuffix "-beta"
+            applicationIdSuffix ".beta"
             buildConfigField "String", "TYPE", '"BETA"'
         }
         debug {
-            versionNameSuffix '-debug'
+            versionNameSuffix "-debug"
+            applicationIdSuffix ".debug"
             buildConfigField "String", "TYPE", '"DEBUG"'
         }
         staging {
             initWith debug
             versionNameSuffix "-staging"
+            buildConfigField "String", "TYPE", '"STAGING"'
         }
     }
     compileOptions {
