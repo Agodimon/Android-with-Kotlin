@@ -19,13 +19,21 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        config {
+            keyAlias 'gb_alias'
+            keyPassword 'dfgdf#JOKH423'
+            storeFile file('F:/Geekbrains/Local repositories/AndroidwithKotlin/keystore.jks')
+            storePassword 'dfgdf#JOKH423'
+        }
+    }
 
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
         beta {
             initWith debug
@@ -88,4 +96,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'androidx.room:room-runtime:2.3.0'
     kapt 'androidx.room:room-compiler:2.3.0'
+
 }
