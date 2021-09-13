@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\fragment_maps_content.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_maps_content.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\item_history_list.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\item_history_list.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\list_of_cities_fragment.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\list_of_cities_fragment.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\main_activity.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\main_activity.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\fragment_history.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_history.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\fragment_contacts.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_contacts.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\fragment_main_recycler_item.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_main_recycler_item.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\details_fragment.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\details_fragment.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\incremental\\mergePaidDebugResources\\stripped.dir\\layout\\fragment_maps.xml",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_maps.xml"
+    }
+]

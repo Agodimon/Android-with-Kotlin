@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_fragment_contacts.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_contacts.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_ic_russia.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\ic_russia.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_ic_earth.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\ic_earth.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\menu_map_menu.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\menu\\map_menu.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_ic_history_24.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\ic_history_24.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_details_fragment.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\details_fragment.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\menu_menu_main.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_ic_launcher_background.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_ic_contacts_24.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\ic_contacts_24.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_list_of_cities_fragment.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\list_of_cities_fragment.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable_btn_round.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\drawable\\btn_round.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\generated\\res\\pngs\\paid\\release\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_fragment_history.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_history.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_fragment_main_recycler_item.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_main_recycler_item.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_fragment_maps.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_maps.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_fragment_maps_content.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\fragment_maps_content.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_item_history_list.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\item_history_list.xml"
+    },
+    {
+        "merged": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\build\\intermediates\\res\\merged\\paid\\release\\layout_main_activity.xml.flat",
+        "source": "F:\\Geekbrains\\Local repositories\\AndroidwithKotlin\\app\\src\\main\\res\\layout\\main_activity.xml"
+    }
+]

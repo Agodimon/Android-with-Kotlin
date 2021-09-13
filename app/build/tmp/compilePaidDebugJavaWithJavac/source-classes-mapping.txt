@@ -1,0 +1,29 @@
+com/bignerdranch/android/androidwithkotlin/databinding/MainActivityBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.MainActivityBinding
+com/bignerdranch/android/androidwithkotlin/databinding/FragmentMainRecyclerItemBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.FragmentMainRecyclerItemBinding
+com/bignerdranch/android/androidwithkotlin/databinding/FragmentHistoryBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.FragmentHistoryBinding
+com/bignerdranch/android/androidwithkotlin/databinding/FragmentMapsBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.FragmentMapsBinding
+com/bignerdranch/android/androidwithkotlin/databinding/ItemHistoryListBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.ItemHistoryListBinding
+com/bignerdranch/android/androidwithkotlin/databinding/DetailsFragmentBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.DetailsFragmentBinding
+com/bignerdranch/android/androidwithkotlin/databinding/FragmentMapsContentBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.FragmentMapsContentBinding
+com/bignerdranch/android/androidwithkotlin/BuildConfig.java
+ com.bignerdranch.android.androidwithkotlin.BuildConfig
+com/bignerdranch/android/androidwithkotlin/databinding/FragmentContactsBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.FragmentContactsBinding
+com/bignerdranch/android/androidwithkotlin/model/database/Database_Impl.java
+ com.bignerdranch.android.androidwithkotlin.model.database.Database_Impl
+ com.bignerdranch.android.androidwithkotlin.model.database.Database_Impl$1
+com/bignerdranch/android/androidwithkotlin/databinding/ListOfCitiesFragmentBinding.java
+ com.bignerdranch.android.androidwithkotlin.databinding.ListOfCitiesFragmentBinding
+com/bignerdranch/android/androidwithkotlin/model/database/HistoryDao_Impl.java
+ com.bignerdranch.android.androidwithkotlin.model.database.HistoryDao_Impl
+ com.bignerdranch.android.androidwithkotlin.model.database.HistoryDao_Impl$1
+ com.bignerdranch.android.androidwithkotlin.model.database.HistoryDao_Impl$2
+ com.bignerdranch.android.androidwithkotlin.model.database.HistoryDao_Impl$3
+ com.bignerdranch.android.androidwithkotlin.model.database.HistoryDao_Impl$4
