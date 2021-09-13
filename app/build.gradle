@@ -5,38 +5,79 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
 }
+if (project.hasProperty("apikey.properties")
+        && new File(project.property("apikey.properties")).exists()) {
 
-android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    Properties props = new Properties()
+    props.load(new FileInputStream(file(project.property("apikey.properties"))))
 
-    defaultConfig {
-        applicationId "com.bignerdranch.android.androidwithkotlin"
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+    android {
+        compileSdkVersion 30
+        buildToolsVersion "30.0.3"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
+        defaultConfig {
+            applicationId "com.bignerdranch.android.androidwithkotlin"
+            minSdkVersion 21
+            targetSdkVersion 30
+            versionCode 1
+            versionName "1.0"
 
-
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding = true
+        signingConfigs {
+            config {
+                keyAlias 'gb_alias'
+                keyPassword props['keystore.password']
+                storeFile file(props['keystore'])
+                storePassword props['keystore.password']
+            }
+        }
+
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.config
+            }
+            beta {
+                initWith debug
+                versionNameSuffix "-beta"
+                applicationIdSuffix ".beta"
+                buildConfigField "String", "TYPE", '"BETA"'
+            }
+            debug {
+                versionNameSuffix "-debug"
+                applicationIdSuffix ".debug"
+                buildConfigField "String", "TYPE", '"DEBUG"'
+            }
+            staging {
+                initWith debug
+                versionNameSuffix "-staging"
+                buildConfigField "String", "TYPE", '"STAGING"'
+            }
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
+        buildFeatures {
+            viewBinding = true
+        }
+        flavorDimensions 'version'
+        productFlavors {
+            free {
+                dimension 'version'
+                versionNameSuffix '.free'
+            }
+            paid {
+                dimension 'version'
+                versionNameSuffix '.paid'
+            }
+        }
     }
 }
 
@@ -61,4 +102,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'androidx.room:room-runtime:2.3.0'
     kapt 'androidx.room:room-compiler:2.3.0'
+
 }
