@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bignerdranch.android.androidwithkotlin.R
 import com.bignerdranch.android.androidwithkotlin.framework.ui.contacts.ContactsFragment
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, ListOfCitiesFragment.newInstance())
                 .commitNow()
         }
+        val string = intent.extras?.getString("custom", "no data") ?: "no data"
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
