@@ -19,8 +19,7 @@ class DetailsFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: DetailsViewModel by viewModel()
 
-    override
-    fun onCreateView(
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -39,7 +38,7 @@ class DetailsFragment : Fragment() {
                     it.city.lat.toString(),
                     it.city.lon.toString()
                 )
-                viewModel.liveDataToObserve.observe(viewLifecycleOwner, { appState ->
+                viewModel.liveDataToObserve.observe(viewLifecycleOwner) { appState ->
                     when (appState) {
                         is AppState.Error -> {
                             mainView.visibility = View.INVISIBLE
@@ -58,7 +57,7 @@ class DetailsFragment : Fragment() {
                             weatherCondition.text = appState.weatherData[0].condition
                         }
                     }
-                })
+                }
                 viewModel.loadData(it.city.lat, it.city.lon)
 
                 Picasso

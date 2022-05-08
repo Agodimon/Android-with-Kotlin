@@ -26,7 +26,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
         with(binding) {
             mainFragmentRecyclerView.adapter = adapter
             mainFragmentFAB.setOnClickListener { changeWeatherDataSet() }
-            viewModel.getLiveData().observe(viewLifecycleOwner, { renderData(it) })
+            viewModel.getLiveData().observe(viewLifecycleOwner) { renderData(it) }
             viewModel.getWeatherFromLocalSourceRus()
         }
     }
@@ -64,7 +64,7 @@ class MainFragment : Fragment() {
                 adapter = MainFragmentAdapter(object : OnItemViewClickListener {
                     override fun onItemViewClick(weather: Weather) {
                         val manager = activity?.supportFragmentManager
-                        manager?.let { manager ->
+                        manager?.let {
                             val bundle = Bundle().apply {
                                 putParcelable(DetailsFragment.BUNDLE_EXTRA, weather)
                             }
@@ -103,5 +103,4 @@ class MainFragment : Fragment() {
     companion object {
         fun newInstance() = MainFragment()
     }
-
 }
